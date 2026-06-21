@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Krizja Gen Franco – Art Appreciation E-Portfolio</title>
+  <meta name="description" content="Meet Krizja Gen S. Franco, BSED 3E student at the University of Antique, College of Teacher Education." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── ABOUT PAGE SPECIFIC ── */
+    .about-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    /* Profile section */
+    .profile-section {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .profile-photo-col {
+      position: sticky;
+      top: 96px;
+    }
+
+    .profile-photo-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .profile-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(233, 30, 140, 0.7));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Decorative corner ornaments */
+    .profile-photo-frame::after {
+      content: '🌸';
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 1.4rem;
+      z-index: 2;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, var(--pink-100), var(--blush));
+    }
+
+    .profile-photo-placeholder {
+      width: 100%;
+      height: 420px;
+      background: linear-gradient(135deg, var(--pink-100), var(--blush));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      gap: 16px;
+    }
+
+    .profile-photo-placeholder p {
+      font-family: var(--font-accent);
+      font-size: 1.1rem;
+      color: var(--pink-400);
+    }
+
+    .profile-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .profile-badge h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      letter-spacing: 0.5px;
+    }
+
+    .profile-badge .course {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      margin-top: 4px;
+    }
+
+    /* Upload hint */
+    .upload-hint {
+      margin-top: 16px;
+      text-align: center;
+      padding: 12px 16px;
+      background: var(--pink-50);
+      border-radius: var(--radius-md);
+      border: 2px dashed var(--pink-200);
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* Profile info */
+    .profile-info-col {}
+
+    .profile-info-col .greeting {
+      font-family: var(--font-accent);
+      font-size: 2rem;
+      color: var(--pink-400);
+      margin-bottom: 4px;
+    }
+
+    .profile-info-col h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .info-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .info-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: white;
+      border: 1px solid var(--pink-200);
+      border-radius: var(--radius-xl);
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-chip .chip-icon { color: var(--pink-400); }
+
+    /* Bio card */
+    .bio-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 32px;
+      border: 1px solid var(--pink-100);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bio-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--pink-400), var(--rose), var(--pink-300));
+    }
+
+    .bio-label {
+      font-family: var(--font-accent);
+      font-size: 1.3rem;
+      color: var(--pink-400);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bio-text {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    .bio-text p + p {
+      margin-top: 16px;
+    }
+
+    /* Metaphor callout */
+    .metaphor-callout {
+      margin-top: 28px;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, var(--pink-50), var(--blush));
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--pink-400);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .metaphor-callout .icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .metaphor-callout p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* Values section */
+    .values-section {
+      margin-top: 48px;
+    }
+
+    .values-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .value-card {
+      background: white;
+      border: 1px solid var(--pink-100);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      text-align: center;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--pink-300);
+    }
+
+    .value-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .value-card h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--pink-600);
+    }
+    .value-card p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .profile-section {
+        grid-template-columns: 1fr;
+      }
+      .profile-photo-col { position: static; }
+      .profile-photo, .profile-photo-placeholder { height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    ✦ Art Appreciation E-Portfolio — BSED 3E, University of Antique ✦
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="nav-logos">
+          <img src="UA LOGO.png"  alt="University of Antique Logo"        class="nav-logo-img" />
+          <img src="CTE LOGO.png" alt="College of Teacher Education Logo" class="nav-logo-img" />
+        </div>
+        <div class="nav-brand-text">
+          <span class="uni-name">University of Antique</span>
+          <span class="college-name">College of Teacher Education</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Home.html"                      >🏠 Home</a></li>
+        <li><a href="Aboutme.html"              class="active">🌸 About Me</a></li>
+        <li><a href="ReflectiveEssay.html"             >✍️ Reflective Essay</a></li>
+        <li><a href="Media.html"                       >🖼️ Gallery</a></li>
+        <li><a href="AccomplishmentReport.html"        >🏆 Accomplishment Report</a></li>
+      </ul>
+      <div class="nav-toggle" id="navToggle" role="button" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>About Me</h1>
+    <p>A kaleidoscope of colors, emotions, and a love for the arts</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="about-wrap">
+    <div class="profile-section">
+
+      <!-- LEFT: Photo Column -->
+      <div class="profile-photo-col">
+        <div class="profile-photo-frame">
+          <!-- Profile photo: save your photo as profile.jpg in this folder -->
+          <img
+            src="profile.jpg"
+            alt="Krizja Gen S. Franco"
+            class="profile-photo"
+            id="profileImg"
+          />
+          <div class="profile-badge">
+            <h2>Krizja Gen S. Franco</h2>
+            <p class="course">BSED 3E</p>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; display:flex; flex-direction:column; gap:12px;">
+          <div class="info-chip"><span class="chip-icon">🏫</span> University of Antique</div>
+          <div class="info-chip"><span class="chip-icon">📚</span> College of Teacher Education</div>
+          <div class="info-chip"><span class="chip-icon">🎓</span> BSED 3E</div>
+          <div class="info-chip"><span class="chip-icon">🎨</span> Art Appreciation</div>
+          <div class="info-chip"><span class="chip-icon">👩‍🏫</span> Instr. Katherine Rafols Santillan-Arceña</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info Column -->
+      <div class="profile-info-col">
+        <p class="greeting">Hello, I'm</p>
+        <h1>Krizja Gen S. Franco</h1>
+
+        <div class="info-chips">
+          <span class="pink-tag">🌸 BSED 3E</span>
+          <span class="pink-tag">✍️ Aspiring Teacher</span>
+          <span class="pink-tag">🎨 Art Enthusiast</span>
+          <span class="pink-tag">💃 Dancer</span>
+          <span class="pink-tag">🎵 Singer</span>
+        </div>
+
+        <!-- Bio Card -->
+        <div class="bio-card">
+          <div class="bio-label">🌸 Short Bio</div>
+          <div class="bio-text">
+            <p>
+              A <strong>kaleidoscope</strong> is my metaphor because it reflects who I am and how I behave. Like a kaleidoscope, I have different colors, sides, and emotions that make me unique.
+            </p>
+            <p>
+              I know that I have weaknesses, but I also know my strengths. One of my greatest strengths is <strong>love</strong>. I believe that love gives me courage, patience, and motivation. Because of love, I can give my best and continue to grow as a person.
+            </p>
+          </div>
+        </div>
+
+        <!-- Metaphor Callout -->
+        <div class="metaphor-callout">
+          <span class="icon">🔮</span>
+          <p>
+            Just like a kaleidoscope that creates beautiful patterns from scattered pieces of glass, I find beauty in life's fragments — turning every experience, challenge, and emotion into something meaningful and colorful.
+          </p>
+        </div>
+
+        <!-- Values -->
+        <div class="values-section">
+          <h3>What Drives Me</h3>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="icon">💖</div>
+              <h4>Love</h4>
+              <p>My greatest strength that fuels courage and patience</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">🌱</div>
+              <h4>Growth</h4>
+              <p>Constantly evolving and learning each day</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">🎨</div>
+              <h4>Creativity</h4>
+              <p>Expression through writing, dancing, and singing</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">✨</div>
+              <h4>Authenticity</h4>
+              <p>Embracing imperfection as a marker of uniqueness</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+          <a href="ReflectiveEssay.html" class="btn btn-primary">Read My Reflective Essay →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Krizja Gen S. Franco</div>
+    <p>BSED 3E &nbsp;·&nbsp; University of Antique &nbsp;·&nbsp; College of Teacher Education</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="Home.html">Home</a>
+      <a href="Aboutme.html">About Me</a>
+      <a href="ReflectiveEssay.html">Reflective Essay</a>
+      <a href="Media.html">Gallery</a>
+      <a href="AccomplishmentReport.html">Accomplishment Report</a>
+    </nav>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+</body>
+</html>

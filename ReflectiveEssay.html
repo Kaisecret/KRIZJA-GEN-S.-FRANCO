@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflective Essay | Krizja Gen Franco – Art Appreciation E-Portfolio</title>
+  <meta name="description" content="Reflective essays on Art Appreciation by Krizja Gen S. Franco, BSED 3E, University of Antique." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── ESSAY PAGE ── */
+    .essay-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+
+    /* Essay header */
+    .essay-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .essay-header .eyebrow {
+      font-family: var(--font-accent);
+      font-size: 1.3rem;
+      color: var(--pink-400);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .essay-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .essay-meta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .essay-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      background: var(--pink-50);
+      padding: 6px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--pink-100);
+    }
+
+    /* Essay body */
+    .essay-body {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      border: 1px solid var(--pink-100);
+    }
+
+    /* Top color bar */
+    .essay-body::before {
+      display: none; /* applied via .essay-top-bar */
+    }
+
+    .essay-top-bar {
+      height: 5px;
+      background: linear-gradient(90deg, var(--pink-600), var(--rose), var(--pink-300));
+    }
+
+    .essay-inner {
+      padding: 48px 52px;
+    }
+
+    /* Paragraphs */
+    .essay-para {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .essay-para em   { color: var(--pink-600); font-style: italic; }
+    .essay-para strong { color: var(--text-dark); }
+
+    /* Poem block */
+    .poem-stanza {
+      background: linear-gradient(135deg, var(--pink-50), var(--blush));
+      border-left: 4px solid var(--pink-400);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 32px 40px;
+      margin: 32px 0;
+      position: relative;
+    }
+
+    .poem-stanza::before {
+      content: '\201C';
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      font-size: 5rem;
+      color: var(--pink-200);
+      font-family: var(--font-display);
+      line-height: 1;
+    }
+
+    .poem-line {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--pink-600);
+      line-height: 2;
+      display: block;
+    }
+
+    /* Essay images */
+    .essay-img-wrap {
+      margin: 36px 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .essay-img-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .essay-img-wrap:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Multi-image grid */
+    .essay-img-grid {
+      display: grid;
+      gap: 12px;
+      margin: 36px 0;
+    }
+
+    .essay-img-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .essay-img-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .essay-img-grid.cols-4 { grid-template-columns: 1fr 1fr; }
+
+    .essay-img-grid .img-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      aspect-ratio: 4/3;
+    }
+    .essay-img-grid .img-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .essay-img-grid .img-item:hover img { transform: scale(1.05); }
+
+    /* Section divider */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--pink-200));
+    }
+    .section-divider::after {
+      background: linear-gradient(to left, transparent, var(--pink-200));
+    }
+    .section-divider span { color: var(--pink-300); font-size: 1.2rem; }
+
+    /* Quote highlight */
+    .highlight-quote {
+      background: linear-gradient(135deg, var(--pink-500), var(--rose));
+      border-radius: var(--radius-md);
+      padding: 32px 40px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .highlight-quote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.3rem;
+      color: white;
+      line-height: 1.5;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    /* FB Link */
+    .fb-link-wrap {
+      margin: 16px 0;
+    }
+
+    .fb-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #1877f2, #0d65d9);
+      color: white;
+      border-radius: var(--radius-xl);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      box-shadow: 0 4px 12px rgba(24,119,242,0.35);
+    }
+    .fb-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(24,119,242,0.5);
+    }
+
+    /* Progress dots */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pink-400), var(--rose));
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    @media (max-width: 640px) {
+      .essay-inner { padding: 28px 24px; }
+      .essay-img-grid.cols-2,
+      .essay-img-grid.cols-3,
+      .essay-img-grid.cols-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    ✦ Art Appreciation E-Portfolio — BSED 3E, University of Antique ✦
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="nav-logos">
+          <img src="UA LOGO.png"  alt="University of Antique Logo"        class="nav-logo-img" />
+          <img src="CTE LOGO.png" alt="College of Teacher Education Logo" class="nav-logo-img" />
+        </div>
+        <div class="nav-brand-text">
+          <span class="uni-name">University of Antique</span>
+          <span class="college-name">College of Teacher Education</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Home.html"                              >🏠 Home</a></li>
+        <li><a href="Aboutme.html"                           >🌸 About Me</a></li>
+        <li><a href="ReflectiveEssay.html"        class="active">✍️ Reflective Essay</a></li>
+        <li><a href="Media.html"                             >🖼️ Gallery</a></li>
+        <li><a href="AccomplishmentReport.html"              >🏆 Accomplishment Report</a></li>
+      </ul>
+      <div class="nav-toggle" id="navToggle" role="button" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Reflective Essays</h1>
+    <p>My thoughts, feelings, and realizations through Art Appreciation</p>
+  </div>
+
+  <!-- ESSAY CONTENT -->
+  <div class="essay-wrap">
+
+    <!-- Essay Header -->
+    <div class="essay-header">
+      <span class="eyebrow">Reflective Essay</span>
+      <h2 class="essay-title">Art is Not What I Thought It Was:<br>Art is <em>Felt</em>, Not Just <em>Made</em></h2>
+      <div class="essay-meta">
+        <span>✍️ By: Krizja Gen S. Franco</span>
+        <span>📚 BSED 3E</span>
+        <span>🎨 Art Appreciation</span>
+        <span>🏫 University of Antique</span>
+      </div>
+    </div>
+
+    <!-- Essay Body -->
+    <article class="essay-body">
+      <div class="essay-top-bar"></div>
+      <div class="essay-inner">
+
+        <!-- Opening paragraph + image1 -->
+        <p class="essay-para">
+          For years, the word <em>"art"</em> filled me with a heavy sense of dread especially when discussed academically. I believed art demanded flawless technique like smooth brushstrokes, steady hands, and polished outputs I was certain I could never produce. I know that my strokes aren't smooth, and my hands feel so heavy when holding a pencil to draw or a brush to paint. Art was a great challenge for me, not until I took this course <strong>Art Appreciation</strong> in college where I discovered that art is not about perfection, but about connection, expression, and the transformative power of the process itself.
+        </p>
+
+        <div class="essay-img-wrap">
+          <img src="essay_images/image1.jpeg" alt="Art Appreciation – opening reflection" loading="lazy" />
+        </div>
+
+        <div class="section-divider"><span>🌸</span></div>
+
+        <!-- Second section -->
+        <p class="essay-para">
+          <strong>I love art.</strong> I have always been drawn to creative expression in small ways. I feel calm listening to music, I love dancing, I am amazed by paintings, and writing feels therapeutic. Overall, I know I am happy to enjoy works of art. However, I strictly separated <em>enjoying art</em> from <em>making art.</em> I struggle to create artwork myself.
+        </p>
+
+        <p class="essay-para">
+          At first, I was hesitant to speak up in class, worried my thoughts about art were wrong. But as we analyzed works from different periods — from Renaissance masterpieces to modern performance art — I grew more confident sharing my perspectives. I began to see how art reflects the time, culture, and values of its creators. This cultural and contextual awareness deepened my appreciation for all forms of creative expression.
+        </p>
+
+        <div class="essay-img-wrap">
+          <img src="essay_images/image2.jpeg" alt="Discovering art in class" loading="lazy" />
+        </div>
+
+        <!-- Turning point -->
+        <p class="essay-para">
+          The turning point came in our Art Appreciation classes. I finally understood what art truly is. Through discussions on art history, cultural contexts, and contemporary works, I learned that a painting's beauty lies not just in its lines or colors, but in the stories it tells and the emotions it evokes. This realization — that imperfection is often what makes art meaningful — helped me let go of my fear of judgment.
+        </p>
+
+        <div class="section-divider"><span>🌸</span></div>
+
+        <!-- Growth section -->
+        <p class="essay-para">
+          As I grew comfortable, I also became more productive and confident which led me to start creating art. I write poems, even if they do not rhyme. I find them beautiful because I noticed my anxiety melting away as I put words to paper, each line felt like a small step toward healing.
+        </p>
+
+        <!-- Poem Block -->
+        <div class="poem-stanza" aria-label="Poem by Krizja Gen S. Franco">
+          <span class="poem-line">"Halin sa Sidlangan paagtu sa Saralpan</span>
+          <span class="poem-line">Apesar kang marayu kag lauhon nga aragyan</span>
+          <span class="poem-line">Akun gin batas lamang akun madangat</span>
+          <span class="poem-line">Ang eskwelahan nga ginahandum gid agtunan"</span>
+        </div>
+
+        <!-- Singing -->
+        <div class="essay-img-wrap">
+          <img src="essay_images/image3.jpeg" alt="Singing – finding my voice through art" loading="lazy" />
+        </div>
+
+        <p class="essay-para">
+          I started singing aloud, not caring if I hit every note. For the first time, I felt free to use my voice, a part of myself I had long been insecure about. <em>"So what if it doesn't sound 'good'?"</em> I'd tell myself. <em>"It makes me happy."</em>
+        </p>
+
+        <div class="section-divider"><span>🌸</span></div>
+
+        <!-- Dance section -->
+        <div class="essay-img-wrap">
+          <img src="essay_images/image4.jpeg" alt="Festival dance performance" loading="lazy" />
+        </div>
+
+        <p class="essay-para">
+          I joined a festival dance group, even though my background is in ballet and contemporary styles, worried I wouldn't keep up — but practice sessions became moments of joy. I learned to move with the group.
+          <span class="fb-link-wrap">
+            <a href="https://web.facebook.com/reel/35992873503692856" target="_blank" rel="noopener" class="fb-link">▶ Watch on Facebook</a>
+          </span>
+        </p>
+
+        <!-- Dance photos grid -->
+        <div class="essay-img-grid cols-4">
+          <div class="img-item"><img src="essay_images/image5.jpeg" alt="Dance performance photo 1" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image6.jpeg" alt="Dance performance photo 2" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image7.jpeg" alt="Dance performance photo 3" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image8.jpeg" alt="Dance performance photo 4" loading="lazy" /></div>
+        </div>
+
+        <div class="section-divider"><span>🌸</span></div>
+
+        <!-- Drama section -->
+        <p class="essay-para">
+          I was also invited to be part of a musical drama. During our brainstorming, my shared ideas led the group to ask me to be the <strong>scriptwriter</strong>. I was not confident in my ideas at first, but they pushed me forward. Their willingness to perform and trust in my vision fueled me to begin. I brainstormed appropriate characters, relevant social issues, and themes; then I wrote, compiled my thoughts, refined the flow, and planned out what needed to be done and avoided to ensure the play would run smoothly. Seeing my ideas come to life through the cast's performance showed me that <strong>art is a shared journey.</strong>
+          <span class="fb-link-wrap" style="margin-top:12px; display:block;">
+            <a href="https://web.facebook.com/reel/1498863675363734" target="_blank" rel="noopener" class="fb-link">▶ Watch Musical Drama on Facebook</a>
+          </span>
+        </p>
+
+        <!-- Drama photos grid -->
+        <div class="essay-img-grid cols-3">
+          <div class="img-item"><img src="essay_images/image9.jpeg"  alt="Musical drama photo 1" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image10.jpeg" alt="Musical drama photo 2" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image11.jpeg" alt="Musical drama photo 3" loading="lazy" /></div>
+        </div>
+
+        <div class="section-divider"><span>🌸</span></div>
+
+        <!-- Transformation -->
+        <p class="essay-para">
+          Overall, art has truly touched my life and transformed me. What changed me as a person most is the realization that art is not just about physical outputs — it is about the emotions and experiences we feel throughout the creative process. These are the small, often overlooked details that matter most.
+        </p>
+
+        <div class="essay-img-wrap">
+          <img src="essay_images/image12.jpeg" alt="Art transformation moment" loading="lazy" />
+        </div>
+
+        <!-- More photos grid -->
+        <div class="essay-img-grid cols-4">
+          <div class="img-item"><img src="essay_images/image13.jpeg" alt="Art activity photo 1" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image14.jpeg" alt="Art activity photo 2" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image15.jpeg" alt="Art activity photo 3" loading="lazy" /></div>
+          <div class="img-item"><img src="essay_images/image16.jpeg" alt="Art activity photo 4" loading="lazy" /></div>
+        </div>
+
+        <div class="section-divider"><span>🌸</span></div>
+
+        <!-- Conclusion -->
+        <p class="essay-para">
+          Art has touched every part of my life, reshaping how I see myself and the world around me. I now understand that the most important aspects of art cannot be measured or described in words — they are felt in the act of creating, sharing, and experiencing. Whether it's the release of writing, or the energy of dancing, art connects us to our emotions and to each other. These are the small, often overlooked details that matter most.
+        </p>
+
+        <!-- Highlight quote -->
+        <div class="highlight-quote">
+          <p>"The most important thing cannot be said, it is done, it is felt."</p>
+        </div>
+
+        <div class="essay-img-wrap">
+          <img src="essay_images/image17.jpeg" alt="Final reflection" loading="lazy" />
+        </div>
+
+        <p class="essay-para">
+          This course did more than teach me about art — it taught me to embrace my own creativity without fear. I no longer see imperfection as a flaw, but as a marker of authenticity that makes my contributions unique.
+        </p>
+
+      </div><!-- /essay-inner -->
+    </article>
+
+    <!-- Navigation -->
+    <div style="display:flex; justify-content:space-between; margin-top:48px; flex-wrap:wrap; gap:16px;">
+      <a href="Aboutme.html"  class="btn btn-outline">← About Me</a>
+      <a href="Media.html"    class="btn btn-primary">Gallery →</a>
+    </div>
+
+  </div><!-- /essay-wrap -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Krizja Gen S. Franco</div>
+    <p>BSED 3E &nbsp;·&nbsp; University of Antique &nbsp;·&nbsp; College of Teacher Education</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="Home.html">Home</a>
+      <a href="Aboutme.html">About Me</a>
+      <a href="ReflectiveEssay.html">Reflective Essay</a>
+      <a href="Media.html">Gallery</a>
+      <a href="AccomplishmentReport.html">Accomplishment Report</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress  = (scrollTop / docHeight) * 100;
+      document.getElementById('readingProgress').style.width = progress + '%';
+    });
+  </script>
+</body>
+</html>

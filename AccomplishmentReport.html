@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accomplishment Report | Krizja Gen Franco – Art Appreciation E-Portfolio</title>
+  <meta name="description" content="Accomplishment Report for Art Appreciation by Krizja Gen S. Franco, BSED 3E, University of Antique." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── ACCOMPLISHMENT PAGE ── */
+    .acc-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+
+    /* ── Hero Quote Banner ── */
+    .acc-quote-banner {
+      background: linear-gradient(135deg, var(--pink-600) 0%, var(--rose) 50%, var(--pink-400) 100%);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .acc-quote-banner::before {
+      content: '🏆';
+      position: absolute;
+      font-size: 12rem;
+      opacity: 0.07;
+      top: -30px;
+      right: -20px;
+      pointer-events: none;
+    }
+
+    .acc-quote-banner::after {
+      content: '🌸';
+      position: absolute;
+      font-size: 8rem;
+      opacity: 0.08;
+      bottom: -20px;
+      left: -10px;
+      pointer-events: none;
+    }
+
+    .acc-quote-banner .quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      color: white;
+      font-style: italic;
+      line-height: 1.3;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .acc-quote-banner .quote-sub {
+      color: rgba(255,255,255,0.75);
+      margin-top: 16px;
+      font-size: 1rem;
+      font-family: var(--font-accent);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid var(--pink-100);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--pink-200);
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--pink-500), var(--rose));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    .stat-icon { font-size: 1.8rem; margin-bottom: 8px; }
+
+    /* ── Accomplishments list ── */
+    .acc-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .acc-section h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--pink-200), transparent);
+    }
+
+    .acc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .acc-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      border: 1px solid var(--pink-100);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .acc-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--pink-400), var(--rose));
+    }
+
+    .acc-card:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--pink-200);
+    }
+
+    .acc-card-icon {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink-100), var(--blush));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .acc-card-content { flex: 1; }
+
+    .acc-card-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .acc-card-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .acc-card-tag {
+      flex-shrink: 0;
+    }
+
+    /* ── Growth Timeline ── */
+    .timeline-section {
+      margin-top: 72px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--pink-300), var(--pink-100));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink-500), var(--rose));
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px var(--pink-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .timeline-content {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      border: 1px solid var(--pink-100);
+      box-shadow: var(--shadow-sm);
+      margin-left: 12px;
+    }
+
+    .timeline-content h4 {
+      font-family: var(--font-display);
+      color: var(--text-dark);
+      font-size: 1.05rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-top: 6px;
+      line-height: 1.65;
+    }
+
+    /* ── Reflection section ── */
+    .reflection-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin-top: 64px;
+      border: 1px solid var(--pink-100);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reflection-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--pink-400), var(--rose), var(--pink-300));
+    }
+
+    .reflection-card .big-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .reflection-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .reflection-card p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .reflection-card .final-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--pink-600);
+      margin-top: 32px;
+    }
+
+    /* Confetti-like decoration */
+    .sparkle-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 28px;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .acc-card { flex-direction: column; }
+      .acc-quote-banner { padding: 36px 24px; }
+      .reflection-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    ✦ Art Appreciation E-Portfolio — BSED 3E, University of Antique ✦
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="nav-logos">
+          <img src="UA LOGO.png"  alt="University of Antique Logo"        class="nav-logo-img" />
+          <img src="CTE LOGO.png" alt="College of Teacher Education Logo" class="nav-logo-img" />
+        </div>
+        <div class="nav-brand-text">
+          <span class="uni-name">University of Antique</span>
+          <span class="college-name">College of Teacher Education</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Home.html"                              >🏠 Home</a></li>
+        <li><a href="Aboutme.html"                           >🌸 About Me</a></li>
+        <li><a href="ReflectiveEssay.html"                   >✍️ Reflective Essay</a></li>
+        <li><a href="Media.html"                             >🖼️ Gallery</a></li>
+        <li><a href="AccomplishmentReport.html"   class="active">🏆 Accomplishment Report</a></li>
+      </ul>
+      <div class="nav-toggle" id="navToggle" role="button" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Accomplishment Report</h1>
+    <p>A record of growth, creativity, and transformation through art</p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="acc-wrap">
+
+    <!-- Quote Banner -->
+    <div class="acc-quote-banner">
+      <p class="quote">"Don't just enjoy the artwork. Start making art."</p>
+      <p class="quote-sub">— This is my journey of doing exactly that</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-icon">🎭</div>
+        <div class="stat-number">1</div>
+        <div class="stat-label">Musical Drama (Scriptwriter)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💃</div>
+        <div class="stat-number">1</div>
+        <div class="stat-label">Festival Dance Performance</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✍️</div>
+        <div class="stat-number">1+</div>
+        <div class="stat-label">Poems Written</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎵</div>
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Songs Sung with Freedom</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌱</div>
+        <div class="stat-number">💯</div>
+        <div class="stat-label">Personal Growth</div>
+      </div>
+    </div>
+
+    <!-- Accomplishments List -->
+    <div class="acc-section">
+      <h2>🏆 My Accomplishments</h2>
+      <div class="acc-list">
+
+        <div class="acc-card">
+          <div class="acc-card-icon">🎭</div>
+          <div class="acc-card-content">
+            <h3>Scriptwriter – Musical Drama</h3>
+            <p>
+              I was invited to be part of a musical drama and, during brainstorming, my ideas led the group to ask me to serve as the <strong>scriptwriter</strong>. I brainstormed appropriate characters, relevant social issues, and themes; then wrote, compiled my thoughts, refined the flow, and planned out what needed to be done. Seeing my ideas come to life through the cast's performance was a milestone I will never forget.
+            </p>
+            <br />
+            <a href="https://web.facebook.com/reel/1498863675363734" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#1877f2; color:white; border-radius:99px; font-size:0.8rem; font-weight:600;">▶ Watch on Facebook</a>
+          </div>
+          <div class="acc-card-tag">
+            <span class="pink-tag">🌟 Creative</span>
+          </div>
+        </div>
+
+        <div class="acc-card">
+          <div class="acc-card-icon">💃</div>
+          <div class="acc-card-content">
+            <h3>Festival Dance Performance</h3>
+            <p>
+              I joined a festival dance group, stepping outside my comfort zone (my background being in ballet and contemporary dance). Though I was worried I wouldn't keep up, practice sessions became moments of pure joy. I learned to move with the group, and the shared experience was one of the most beautiful artistic experiences of my life.
+            </p>
+            <br />
+            <a href="https://web.facebook.com/reel/35992873503692856" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background:#1877f2; color:white; border-radius:99px; font-size:0.8rem; font-weight:600;">▶ Watch on Facebook</a>
+          </div>
+          <div class="acc-card-tag">
+            <span class="pink-tag">💃 Performance</span>
+          </div>
+        </div>
+
+        <div class="acc-card">
+          <div class="acc-card-icon">✍️</div>
+          <div class="acc-card-content">
+            <h3>Poetry Writing</h3>
+            <p>
+              I began writing poems — even when they didn't rhyme — and found them beautiful because each line felt like a small step toward healing. My poem about the journey to school reflects my love for learning and the resilience I discovered within myself:
+            </p>
+            <br />
+            <blockquote style="font-family: var(--font-display); font-style: italic; color: var(--pink-600); line-height: 2; padding: 12px 20px; background: var(--pink-50); border-left: 3px solid var(--pink-300); border-radius: 0 8px 8px 0; margin-top: 12px;">
+              "Halin sa Sidlangan paagtu sa Saralpan<br />
+              Apesar kang marayu kag lauhon nga aragyan<br />
+              Akun gin batas lamang akun madangat<br />
+              Ang eskwelahan nga ginahandum gid agtunan"
+            </blockquote>
+          </div>
+          <div class="acc-card-tag">
+            <span class="pink-tag">📝 Writing</span>
+          </div>
+        </div>
+
+        <div class="acc-card">
+          <div class="acc-card-icon">🎵</div>
+          <div class="acc-card-content">
+            <h3>Found My Singing Voice</h3>
+            <p>
+              For the first time, I sang aloud without caring if I hit every note. Art Appreciation taught me that artistic value is not measured by technical perfection, but by the freedom and authenticity of expression. This was a personal victory — releasing a part of myself I had long kept silent due to insecurity.
+            </p>
+          </div>
+          <div class="acc-card-tag">
+            <span class="pink-tag">🎵 Expression</span>
+          </div>
+        </div>
+
+        <div class="acc-card">
+          <div class="acc-card-icon">🎓</div>
+          <div class="acc-card-content">
+            <h3>Transformed My Perspective on Art</h3>
+            <p>
+              Perhaps my greatest accomplishment is the shift in mindset. I entered this course believing art required technical perfection. I leave it understanding that <strong>art is felt, not just made.</strong> Imperfection is what makes art meaningful. This realization has reshaped how I see myself — as a creative, expressive human being capable of contributing to the world through art.
+            </p>
+          </div>
+          <div class="acc-card-tag">
+            <span class="pink-tag">🌱 Growth</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-section">
+      <div class="acc-section">
+        <h2>📅 My Growth Journey</h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot">①</div>
+          <div class="timeline-content">
+            <h4>Before Art Appreciation</h4>
+            <p>Believed art required flawless technique. Was hesitant to speak up in class. Strictly separated <em>enjoying art</em> from <em>making art</em>.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">②</div>
+          <div class="timeline-content">
+            <h4>Discovering Context and Culture</h4>
+            <p>Through discussions on art history and cultural contexts, I grew more confident sharing perspectives. I began to see how art reflects the time, culture, and values of its creators.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">③</div>
+          <div class="timeline-content">
+            <h4>The Turning Point</h4>
+            <p>I finally understood that imperfection is often what makes art meaningful. This helped me let go of my fear of judgment and embrace my own creativity.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">④</div>
+          <div class="timeline-content">
+            <h4>Creating My Own Art</h4>
+            <p>I started writing poems, singing aloud without caring about perfection, joining a festival dance group, and serving as scriptwriter for a musical drama.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">⑤</div>
+          <div class="timeline-content">
+            <h4>Transformation</h4>
+            <p>Art has touched every part of my life. I now embrace my own creativity without fear. I no longer see imperfection as a flaw, but as a marker of authenticity that makes my contributions unique.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Final Reflection Card -->
+    <div class="reflection-card">
+      <div class="big-icon">🌸</div>
+      <h3>Final Reflection</h3>
+      <p>
+        This course did more than teach me about art — it taught me to embrace my own creativity without fear. I no longer see imperfection as a flaw, but as a marker of authenticity that makes my contributions unique. Art has touched every part of my life, reshaping how I see myself and the world around me.
+      </p>
+      <p class="final-quote">
+        "The most important thing cannot be said, it is done, it is felt."
+      </p>
+      <div class="sparkle-row" aria-hidden="true">
+        🌸 ✨ 🎨 ✨ 💖 ✨ 🎭 ✨ 💃 ✨ 🌸
+      </div>
+    </div>
+
+  </div><!-- /acc-wrap -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Krizja Gen S. Franco</div>
+    <p>BSED 3E &nbsp;·&nbsp; University of Antique &nbsp;·&nbsp; College of Teacher Education</p>
+    <p style="margin-top:4px; font-style:italic; color:rgba(255,255,255,0.65); font-size:0.85rem;">Art Appreciation E-Portfolio &nbsp;·&nbsp; Instructor: Katherine Rafols Santillan-Arceña</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="Home.html">Home</a>
+      <a href="Aboutme.html">About Me</a>
+      <a href="ReflectiveEssay.html">Reflective Essay</a>
+      <a href="Media.html">Gallery</a>
+      <a href="AccomplishmentReport.html">Accomplishment Report</a>
+    </nav>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // Animate stats on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.stat-card, .acc-card, .timeline-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s, border-color 0.3s';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
