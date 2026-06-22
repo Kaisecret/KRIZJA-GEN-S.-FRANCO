@@ -239,11 +239,56 @@
       transition: width 0.1s ease;
     }
 
-    @media (max-width: 640px) {
-      .essay-inner { padding: 28px 24px; }
+    /* ── Responsive: Large screens ── */
+    @media (min-width: 1400px) {
+      .essay-wrap { max-width: 960px; }
+      .essay-inner { padding: 56px 64px; }
+      .essay-para { font-size: 1.1rem; }
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 768px) {
+      .essay-wrap { padding: 48px 20px 80px; }
+      .essay-inner { padding: 36px 28px; }
+      .essay-header { margin-bottom: 40px; }
+      .essay-title { font-size: 1.8rem; }
+      .essay-para { font-size: 0.95rem; }
+      .poem-stanza { padding: 24px 28px; }
+      .poem-line { font-size: 1rem; }
+      .highlight-quote { padding: 24px 28px; }
+      .highlight-quote p { font-size: 1.1rem; }
+      .essay-img-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Responsive: Small mobile ── */
+    @media (max-width: 480px) {
+      .essay-wrap { padding: 32px 16px 60px; }
+      .essay-inner { padding: 24px 18px; }
+      .essay-header { margin-bottom: 32px; }
+      .essay-header .eyebrow { font-size: 1.05rem; }
+      .essay-title { font-size: 1.4rem; }
+      .essay-meta { gap: 8px; }
+      .essay-meta span { font-size: 0.75rem; padding: 4px 10px; }
+      .essay-para { font-size: 0.9rem; line-height: 1.8; margin-bottom: 18px; text-align: left; }
+      .poem-stanza { padding: 20px 18px; margin: 24px 0; }
+      .poem-stanza::before { font-size: 3.5rem; top: -6px; left: 8px; }
+      .poem-line { font-size: 0.92rem; line-height: 1.9; }
+      .highlight-quote { padding: 20px 18px; margin: 28px 0; }
+      .highlight-quote p { font-size: 1rem; }
+      .fb-link { padding: 8px 16px; font-size: 0.8rem; }
+      .essay-img-wrap { margin: 24px 0; }
+      .essay-img-grid { margin: 24px 0; gap: 8px; }
       .essay-img-grid.cols-2,
       .essay-img-grid.cols-3,
       .essay-img-grid.cols-4 { grid-template-columns: 1fr; }
+      .section-divider { margin: 28px 0; }
+    }
+
+    /* ── Responsive: Extra small ── */
+    @media (max-width: 360px) {
+      .essay-inner { padding: 20px 14px; }
+      .essay-para { font-size: 0.85rem; }
+      .essay-title { font-size: 1.2rem; }
     }
   </style>
   <link rel="icon" type="image/png" href="UA LOGO.png" />

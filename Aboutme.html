@@ -265,12 +265,54 @@
       margin-top: 6px;
     }
 
+    /* ── Responsive: Large screens ── */
+    @media (min-width: 1400px) {
+      .about-wrap { max-width: 1300px; }
+      .profile-section { grid-template-columns: 380px 1fr; gap: 72px; }
+    }
+
+    /* ── Responsive: Tablet (900px and below) ── */
     @media (max-width: 900px) {
       .profile-section {
         grid-template-columns: 1fr;
+        gap: 36px;
       }
       .profile-photo-col { position: static; }
       .profile-photo, .profile-photo-placeholder { height: 320px; }
+      .about-wrap { padding: 48px 20px; }
+      .bio-card { padding: 28px 24px; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── Responsive: Small mobile ── */
+    @media (max-width: 480px) {
+      .about-wrap { padding: 32px 16px; }
+      .profile-photo, .profile-photo-placeholder { height: 260px; }
+      .profile-badge h2 { font-size: 1.2rem; }
+      .profile-badge .course { font-size: 0.78rem; }
+      .profile-info-col .greeting { font-size: 1.6rem; }
+      .profile-info-col h1 { font-size: 1.6rem; }
+      .info-chips { gap: 8px; }
+      .info-chip { padding: 6px 12px; font-size: 0.78rem; }
+      .bio-card { padding: 24px 18px; margin-top: 24px; }
+      .bio-card .bio-text { font-size: 1rem; line-height: 1.8; }
+      .metaphor-callout { flex-direction: column; padding: 18px 16px; gap: 10px; }
+      .metaphor-callout .icon { font-size: 2rem; }
+      .metaphor-callout p { font-size: 0.88rem; }
+      .values-section { margin-top: 36px; }
+      .values-section h3 { font-size: 1.25rem; }
+      .values-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .value-card { padding: 18px 14px; }
+      .value-card .icon { font-size: 1.6rem; }
+      .value-card h4 { font-size: 0.9rem; }
+      .value-card p { font-size: 0.72rem; }
+    }
+
+    /* ── Responsive: Extra small ── */
+    @media (max-width: 360px) {
+      .profile-photo, .profile-photo-placeholder { height: 220px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .bio-card .bio-text { font-size: 0.92rem; }
     }
   </style>
   <link rel="icon" type="image/png" href="UA LOGO.png" />

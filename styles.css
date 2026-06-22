@@ -75,14 +75,18 @@ a { text-decoration: none; color: inherit; }
 /* ── Top Banner ── */
 .top-banner {
   background: linear-gradient(135deg, var(--pink-600) 0%, var(--pink-400) 50%, var(--rose) 100%);
-  padding: 10px 0;
+  padding: 10px 16px;
   text-align: center;
   font-family: var(--font-accent);
-  font-size: 0.95rem;
+  font-size: clamp(0.7rem, 2.5vw, 0.95rem);
   color: rgba(255,255,255,0.9);
   letter-spacing: 0.5px;
   width: 100%;
   display: block;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* ── Navigation ── */
@@ -168,6 +172,7 @@ a { text-decoration: none; color: inherit; }
   color: var(--text-mid);
   transition: all var(--transition);
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -194,7 +199,11 @@ a { text-decoration: none; color: inherit; }
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 .nav-toggle span {
   display: block;
@@ -440,6 +449,29 @@ footer .footer-links a:hover { color: white; }
 .fade-in-delay-3 { animation-delay: 0.3s; }
 
 /* ── Responsive ── */
+
+/* Large screens (1400px+) */
+@media (min-width: 1400px) {
+  .nav-container { max-width: 1400px; }
+  .main-content { max-width: 1400px; }
+  .page-hero { padding: 100px 48px; }
+  .page-hero h1 { font-size: 3.8rem; }
+  footer { padding: 56px 48px; }
+}
+
+/* Desktop (1024px–1399px) */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .nav-links a { padding: 8px 14px; font-size: 0.82rem; }
+}
+
+/* Tablet (769px–1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .nav-links a { padding: 6px 10px; font-size: 0.78rem; gap: 4px; }
+  .nav-logo-img { height: 38px; width: 38px; }
+  .page-hero { padding: 64px 24px; }
+}
+
+/* Mobile (768px and below) */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -447,35 +479,93 @@ footer .footer-links a:hover { color: white; }
     top: 100%;
     left: 0;
     width: 100%;
-    height: calc(100vh - 72px);
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
     background: rgba(255, 255, 255, 0.98);
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 40px;
-    gap: 20px;
+    padding: 32px 24px;
+    gap: 8px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 9999;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-bottom: 2px solid var(--pink-100);
   }
 
-  .nav-links.open { display: flex; }
+  .nav-links.open {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav-links li { width: 100%; }
 
   .nav-links a {
-    font-size: 1.2rem;
-    padding: 12px 32px;
+    font-size: 1.05rem;
+    padding: 14px 24px;
     width: 100%;
     text-align: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    min-height: 48px;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: linear-gradient(135deg, var(--pink-50), var(--blush));
   }
 
   .nav-toggle { display: flex; }
 
-  .page-hero { padding: 60px 24px; }
+  .page-hero { padding: 56px 20px; }
+  .page-hero h1 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+  .page-hero p { font-size: 0.9rem; }
+
+  .section-heading h2 { font-size: 1.5rem; }
+
+  footer { padding: 32px 20px; }
+  footer .footer-logo { font-size: 1.4rem; }
+  footer p { font-size: 0.78rem; }
+  footer .footer-links { gap: 12px; }
+  footer .footer-links a { font-size: 0.78rem; }
+
+  .btn { padding: 10px 22px; font-size: 0.85rem; }
 }
 
+/* Small mobile (480px and below) */
 @media (max-width: 480px) {
   .nav-brand-text .uni-name { font-size: 0.65rem; }
   .nav-brand-text .college-name { font-size: 0.55rem; }
-  .nav-logo-img { height: 36px; width: 36px; }
+  .nav-logo-img { height: 34px; width: 34px; }
+  .nav-container { padding: 0 12px; height: 64px; }
+
+  .top-banner { padding: 8px 12px; font-size: 0.65rem; }
+
+  .page-hero { padding: 44px 16px; }
+  .page-hero h1 { font-size: 1.5rem; }
+  .page-hero p { font-size: 0.82rem; margin-top: 8px; }
+
+  .section-heading h2 { font-size: 1.3rem; }
+  .section-heading .eyebrow { font-size: 1rem; }
+
+  .pink-tag { font-size: 0.68rem; padding: 3px 10px; }
+
+  footer { padding: 28px 16px; }
+  footer .footer-logo { font-size: 1.2rem; }
+  footer .footer-links { gap: 8px; }
+  footer .footer-links a { font-size: 0.72rem; }
+}
+
+/* Extra small (360px and below) */
+@media (max-width: 360px) {
+  .nav-brand-text { display: none; }
+  .nav-logos { gap: 4px; }
+  .nav-logo-img { height: 30px; width: 30px; }
+  .page-hero h1 { font-size: 1.3rem; }
 }

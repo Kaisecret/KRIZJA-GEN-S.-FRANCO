@@ -324,6 +324,70 @@
       content: '▼';
       font-size: 0.8rem;
     }
+
+    /* ── Responsive: Large screens ── */
+    @media (min-width: 1400px) {
+      .features-grid { max-width: 1400px; }
+      .hero-content { max-width: 1000px; }
+      .hero-title { font-size: 4.5rem; }
+      .quote-text { font-size: 2.8rem; }
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 768px) {
+      .hero { min-height: 90vh; padding: 32px 20px; }
+      .hero-logos { gap: 16px; margin-bottom: 24px; }
+      .hero-logo-img { width: 72px; height: 72px; padding: 6px; }
+      .logo-label { font-size: 0.6rem; }
+      .hero-divider { height: 40px; }
+      .hero-eyebrow { font-size: 1.1rem; }
+      .hero-subtitle { font-size: 0.92rem; }
+      .hero-instructor { padding: 10px 18px; flex-direction: column; gap: 4px; text-align: center; }
+      .hero-instructor .label { font-size: 0.7rem; }
+      .hero-instructor .name { font-size: 0.85rem; }
+      .hero-btns { gap: 12px; }
+      .btn-hero-primary,
+      .btn-hero-outline { padding: 12px 24px; font-size: 0.88rem; }
+      .features-section { padding: 56px 20px; }
+      .features-grid { gap: 16px; }
+      .feature-card { padding: 28px 24px; }
+      .quote-section { padding: 56px 20px; }
+      .scroll-hint { bottom: 20px; }
+    }
+
+    /* ── Responsive: Small mobile ── */
+    @media (max-width: 480px) {
+      .hero { min-height: 85vh; padding: 24px 16px; }
+      .hero-logos { gap: 12px; margin-bottom: 20px; }
+      .hero-logo-img { width: 60px; height: 60px; padding: 5px; box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 0 3px rgba(255,255,255,0.25); }
+      .logo-label { font-size: 0.55rem; }
+      .hero-divider { height: 32px; }
+      .hero-eyebrow { font-size: 0.95rem; }
+      .hero-title span { font-size: 0.55em; }
+      .hero-subtitle { font-size: 0.85rem; margin-top: 14px; }
+      .hero-instructor { padding: 8px 14px; margin-top: 20px; }
+      .hero-instructor .label { font-size: 0.65rem; }
+      .hero-instructor .name { font-size: 0.8rem; }
+      .hero-btns { flex-direction: column; align-items: center; gap: 10px; margin-top: 28px; }
+      .btn-hero-primary,
+      .btn-hero-outline { padding: 12px 28px; font-size: 0.85rem; width: 100%; max-width: 260px; text-align: center; justify-content: center; display: flex; }
+      .features-section { padding: 44px 16px; }
+      .features-grid { grid-template-columns: 1fr; gap: 14px; }
+      .feature-card { padding: 24px 20px; }
+      .feature-icon { width: 56px; height: 56px; font-size: 1.6rem; }
+      .feature-card h3 { font-size: 1.1rem; }
+      .feature-card p { font-size: 0.82rem; }
+      .quote-section { padding: 44px 16px; }
+      .quote-sub { font-size: 0.9rem; }
+      .scroll-hint { display: none; }
+    }
+
+    /* ── Responsive: Extra small ── */
+    @media (max-width: 360px) {
+      .hero { padding: 20px 12px; }
+      .hero-logo-img { width: 50px; height: 50px; }
+      .hero-btns { margin-top: 24px; }
+    }
   </style>
   <link rel="icon" type="image/png" href="UA LOGO.png" />
 </head>
